@@ -1,0 +1,29 @@
+.container {
+    display: flex;
+    height: 100vh;
+    overflow: hidden; /* Impede que o body role */
+}
+
+.container_sidebar {
+    width: 20%;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background-color: #f4f4f4; /* Apenas para visualização */
+}
+
+.container_principal_home {
+    width: 80%;
+    margin-left: 20%; /* Para compensar a sidebar fixa */
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+/* Div interna que vai rolar */
+.content_scroll {
+    flex: 1; /* Faz com que essa div ocupe todo o espaço disponível */
+    overflow-y: auto; /* Apenas essa parte terá scroll */
+}
