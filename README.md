@@ -26,7 +26,7 @@ SempaiList é um projeto em desenvolvimento que visa fornecer informações deta
    ```
 3. Inicie o projeto:
    ```sh
-   npm start
+   npm run dev
    ```
 
 ## Licença
