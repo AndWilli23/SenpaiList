@@ -46,6 +46,7 @@ const Home =() => {
             <div className="container_principal_home" style={{marginTop: "3rem"}}>
                 
                 <div className="content_scroll">
+                <h2 className="pb-5">Animes Populares:</h2>
                     <Collection animes={animes.slice(0, 24)} />
                     
                 </div>

@@ -80,7 +80,10 @@ const DetailsAnimes = () => {
 
 
     if (!animeSelect) {
-        return <p>Carregando...</p>;
+        return (
+        <div style={{position: "absolute",  left: "0", bottom: "0", top: "0", right: "0"}} className="d-flex justify-content-center align-items-center">
+            <p style={{fontSize:"32px"}} className="text-info">Carregando...</p>
+        </div>)
     }
 
     console.log(animeSelect)

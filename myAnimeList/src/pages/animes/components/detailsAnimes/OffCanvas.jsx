@@ -15,7 +15,7 @@ function OffCanvas({name, character, characterAbout}) {
 
       <Offcanvas show={show} onHide={handleClose} placement='end'>
         <Offcanvas.Header closeButton >
-          <Offcanvas.Title >{name}</Offcanvas.Title>
+          <Offcanvas.Title>{name}</Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body className='d-flex flex-column align-items-center'>
             <img style={{width: "16rem", height: "22rem"}} 
