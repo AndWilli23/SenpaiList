@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Button, OverlayTrigger, Tooltip } from "react-bootstrap";
-import {useAsyncError, useParams} from "react-router-dom"
+import {useParams} from "react-router-dom"
 import ReactPlayer from "react-player";
 import ReviewsCards from "./ReviewsCards";
 import OffCanvas from "./OffCanvas";
+import Loading from "../Loading";
 
 const DetailsAnimes = () => {
 
@@ -18,56 +19,56 @@ const DetailsAnimes = () => {
     
     const handleCharacterSelected = async (characterId) => {
 
-        const getCharactersSelect = await fetch(`https://api.jikan.moe/v4/characters/${characterId}`)
+        const getCharactersSelect = await fetch(`https://api.jikan.moe/v4/characters/${characterId}`);
 
-        const response = await getCharactersSelect.json()
+        const response = await getCharactersSelect.json();
 
         console.log(response.data);
 
-        setCharacterSelect(response.data.about)
+        setCharacterSelect(response.data.about);
     }
    
 
     useEffect(() => {
         const requestApi = async () => {
-            const animeSelected = await fetch(`https://api.jikan.moe/v4/anime/${id}`)
+            const animeSelected = await fetch(`https://api.jikan.moe/v4/anime/${id}`);
 
-            const response = await animeSelected.json()
+            const response = await animeSelected.json();
 
             setAnimeSelect(response.data);
         }
-        requestApi()
+        requestApi();
     }, [id])
 
 
     
     useEffect(() => {
         const requestApi = async () => {
-            const getCharacters = await fetch(`https://api.jikan.moe/v4/anime/${id}/characters`)
+            const getCharacters = await fetch(`https://api.jikan.moe/v4/anime/${id}/characters`);
             
-            const response = await getCharacters.json()
+            const response = await getCharacters.json();
             
             console.log(response.data);
             
             
-            setCharecters(response.data)
+            setCharecters(response.data);
         }
-        requestApi()
+        requestApi();
     }, [id])
 
     
     useEffect(() => {
         const requestApi = async () => {
-            const getReviews = await fetch(`https://api.jikan.moe/v4/anime/${id}/reviews`)
+            const getReviews = await fetch(`https://api.jikan.moe/v4/anime/${id}/reviews`);
 
-            const response = await getReviews.json()
+            const response = await getReviews.json();
 
             console.log(response.data);
 
-            setReviews(response.data)
+            setReviews(response.data);
         }
-        requestApi()
-    }, [id])
+        requestApi();
+    }, [id]);
 
 
     const loadMoreCharacters  = () => {
@@ -78,15 +79,11 @@ const DetailsAnimes = () => {
             setAmountCharacters(amount => (amount > 25 ? amount - 10 : amount) );
     }
 
-
     if (!animeSelect) {
-        return (
-        <div style={{position: "absolute",  left: "0", bottom: "0", top: "0", right: "0"}} className="d-flex justify-content-center align-items-center">
-            <p style={{fontSize:"32px"}} className="text-info">Carregando...</p>
-        </div>)
+        return <Loading loaded={animeSelect}></Loading>
     }
 
-    console.log(animeSelect)
+    
 
     return(
 

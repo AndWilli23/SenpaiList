@@ -1,7 +1,18 @@
+body{
+    background-color: #181818;
+    color: #E0E0E0;
+}
+
+
+h1, h2, h3 {
+    color: #00FFF6;
+}
+
 .container {
     display: flex;
     height: 100vh;
-    overflow: hidden; /* Impede que o body role */
+    overflow: hidden; 
+    margin-right: 0;
 }
 
 .container_sidebar {
@@ -10,20 +21,20 @@
     position: fixed;
     left: 0;
     top: 0;
-    background-color: #f4f4f4; /* Apenas para visualização */
+    background-color: #f4f4f4; 
 }
 
 .container_principal_home {
-    width: 80%;
-    margin-left: 20%; /* Para compensar a sidebar fixa */
+    width: 100%;
+    margin-left: 10%;
     height: 100vh;
     display: flex;
     flex-direction: column;
     padding: 20px;
 }
 
-/* Div interna que vai rolar */
 .content_scroll {
-    flex: 1; /* Faz com que essa div ocupe todo o espaço disponível */
-    overflow-y: auto; /* Apenas essa parte terá scroll */
+    flex: 1; 
+    overflow-y: auto; 
+    scrollbar-color: #FF007A #1E1E2E;
 }

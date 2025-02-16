@@ -14,7 +14,13 @@ const Collection = ({animes}) =>{
     return(
         <ul className="d-flex flex-wrap justify-content-around gap-5" >
             {animes.map((item, index) => {
-                return <CardAnimes key={index} item={item} index={index}  handleNavigate={() => handleNavigate(item.mal_id)}/> 
+                return (
+                    <>
+                        <CardAnimes key={index} item={item} index={index}  handleNavigate={() => handleNavigate(item.mal_id)}/>
+                        
+                    </>
+                )
+
             })}
         </ul>
     )

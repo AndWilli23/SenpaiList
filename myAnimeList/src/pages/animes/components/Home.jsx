@@ -3,12 +3,15 @@ import FormSearch from "./searchAnimes/FormSearch";
 import Collection from "./Collection";
 import Sidebar from "../../layout/sideBar";
 import "./index.css"
+import Pagination from "./Pagination";
 
 
 const Home =() => {
 
     const [animes, setAnimes] = useState([]);
     const [loading, setLoading] = useState(false)
+    const [pag, setPag] = useState(1);
+    const [amountPags, setAmountPags] = useState(1);
     const base_url = "https://api.jikan.moe/v4/"
     const animes_populars_url = "top/anime"
   
@@ -21,6 +24,7 @@ const Home =() => {
 
             if(response) {
                 setAnimes(response.data);
+                setAmountPags(response.pagination.last_visible_page);
                 setLoading(true)
             }
     
@@ -45,9 +49,10 @@ const Home =() => {
             </div>
             <div className="container_principal_home" style={{marginTop: "3rem"}}>
                 
-                <div className="content_scroll">
+                <div className="content_scroll ">
                 <h2 className="pb-5">Animes Populares:</h2>
-                    <Collection animes={animes.slice(0, 24)} />
+                    <Collection animes={animes.slice(0, 24)}/>
+                    <Pagination amountPags={amountPags} setPags={setPag} pags={pag}/>
                     
                 </div>
             </div>

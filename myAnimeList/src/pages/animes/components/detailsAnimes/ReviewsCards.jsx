@@ -4,7 +4,7 @@ function ReviewsCards({ reviews }) {
   return (
     <Carousel data-bs-theme="light" style={{ backgroundColor: 'transparent' }} className='m-5'>
       {reviews.slice(0, 3).map((item, index) => ( 
-        <Carousel.Item key={index} className="bg-info rounded p-5"> 
+        <Carousel.Item key={index} className="rounded p-5" style={{backgroundColor: "#222831"}}> 
           <h5 className='text-center'>{item.user.username}</h5>
             <p style={{
                 paddingTop: "1rem",

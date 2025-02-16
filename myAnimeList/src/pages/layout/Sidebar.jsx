@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import { Link } from "react-router-dom"
+import {useNavigate} from "react-router-dom"
 import "./sidebar.css"
 
 
@@ -7,6 +8,19 @@ const Sidebar = () => {
 
     const [selecionado, setSelecionado] = useState(false)
     const [MangasSelecionado, setMangasSelecionado] = useState(false)
+    const genresOptions = [["Ação", "1"],
+        ["Aventura", "2"],
+        ["Românce", "22"], 
+        ["Comédia", "4"] ,
+        ["Drama", "8"],
+        ["Fantasia", "10"],
+        ["Sci-Fi", "24"],
+        ["Horror", "14"],
+        ["Mistério", "7"],
+        ["Esportes", "30"],
+        ["Slice of Life", "36"],
+        ["Suspense", "41"]]
+        const navigate = useNavigate()
 
 
     const handleClickAnimes = () => {
@@ -17,8 +31,14 @@ const Sidebar = () => {
         setMangasSelecionado(!MangasSelecionado)
     }
 
+    const handleNavigate = (genre) =>{
+        navigate(`/animesByGenres/${genre}`)
+    }
+
+    
+
     return( 
-        <aside className="container_sidebar">
+        <aside className="container_sidebar" style={{backgroundColor: "#252525"}}>
 
             <div>
                 <h2>SenpaiList </h2>
@@ -30,25 +50,20 @@ const Sidebar = () => {
                     <button onClick={handleClickAnimes}>Animes</button>
                     {selecionado && (
                         <ul>
-                            <li>
-                                <Link>Aventura</Link>
-                            </li>
-                            <li>
-                                <Link>Ação</Link>
-                            </li>
-                            <li>
-                                <Link>Romance</Link>
-                            </li>
-                            <li>
-                                <Link></Link>
-                            </li>
+                            {genresOptions.map((genre, index) => (
+                                <li>
+                                    <button onClick={() => handleNavigate(genre[1])} >{genre[0]}</button>
+                                </li>
+                            ))}    
                             
                         </ul>
                     )}
                 </li>
+
                 <li>
                     <Link to={"/topAnimes"}>Animes Populares</Link>
                 </li>
+
                 <li>
                     <Link to={"/searchAnimes"}>Busca por animes</Link>
                 </li>
@@ -58,17 +73,18 @@ const Sidebar = () => {
                     {MangasSelecionado && (
                         <ul>
                             <li>
-                                <Link>Aventura</Link>
+                                <Link to={"/animeByGenres"}>Aventura</Link>
                             </li>
                             <li>
-                                <Link>Ação</Link>
+                                <Link to={"/animeByGenres"}>Ação</Link>
                             </li>
                             <li>
-                                <Link>Romance</Link>
+                                <Link to={"/animeByGenres"}>Romance</Link>
                             </li>
                             <li>
-                                <Link></Link>
+                                <Link to={"/animeByGenres"}></Link>
                             </li>
+
                             
                         </ul>
                     )}

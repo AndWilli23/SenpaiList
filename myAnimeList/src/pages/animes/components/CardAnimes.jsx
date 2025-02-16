@@ -8,16 +8,15 @@ const CardAnimes = ({item, index, handleNavigate}) => {
 
     return(
         
-        <div style={{width:"40%", height:"100vh"}} >
-            <Card key={index} className="shadow-lg">
-                <Card.Img className="p-1" variant='top' src={item.images.jpg.large_image_url} style={{width: "100%", maxHeight:"65vh", borderRadius: "1rem"}}></Card.Img>
+        <div style={{width:"24%", height:"80vh", marginRight: "3rem"}} >
+            <Card key={index} className="" style={{ backgroundColor: "#222831"}}>
+                <Card.Img className="p-2 shadow-sm" variant='top' src={item.images.jpg.large_image_url} style={{width: "100%", maxHeight:"39vh", borderRadius: "1rem"}}></Card.Img>
                 <Card.Body>
                     <div className="d-flex justify-content-center" style={{padding: "20px"}}>
-                        <Card.Title style={{textAlign: "center",padding: " 20px 0 0 0", maxWidth:"30ch", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{item.title}</Card.Title>
+                        <Card.Title style={{color: "#00FFF6",  textAlign: "center", maxWidth:"30ch", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{item.title}</Card.Title>
                     </div>
-                    <Card.Text>{""}</Card.Text>
                     <div className="d-flex justify-content-center">
-                        <Button onClick={handleNavigate}>Ver mais detalhes </Button>   
+                        <Button style={{backgroundColor: "#FF007A", border: "none"}} onClick={handleNavigate}>Ver mais detalhes </Button>   
                     </div>
                 </Card.Body>
             </Card>

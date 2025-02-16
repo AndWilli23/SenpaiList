@@ -13,16 +13,16 @@ function OffCanvas({name, character, characterAbout}) {
     <>
       <Characters  handleShow={handleShow} character={character.images.jpg.image_url} />
 
-      <Offcanvas show={show} onHide={handleClose} placement='end'>
+      <Offcanvas show={show} onHide={handleClose} placement='end' style={{backgroundColor: "#181818"}}>
         <Offcanvas.Header closeButton >
-          <Offcanvas.Title>{name}</Offcanvas.Title>
+          <Offcanvas.Title style={{color: "#00FFF6"}}>{name}</Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body className='d-flex flex-column align-items-center'>
             <img style={{width: "16rem", height: "22rem"}} 
             className="p-1 shadow-lg border border-warning d-flex justify-content-center" 
             src={character.images.jpg.image_url} 
             alt="Imagem do personagem selecionado" />
-            {characterAbout === null ? (<p className='p-3 text-center'>Descrição indisponível ou inexistente</p>) : ( <p className='p-3 text-center'>{characterAbout}</p>)}
+            {characterAbout === null ? (<p className='p-3 text-center' style={{color: "#E0E0E0"}}>Descrição indisponível ou inexistente</p>) : ( <p className='p-3 text-center' style={{color: "#E0E0E0"}}>{characterAbout}</p>)}
            
         </Offcanvas.Body>
       </Offcanvas>
