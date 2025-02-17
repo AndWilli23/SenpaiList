@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Collection from "../Collection";
-import Sidebar from "../../../layout/sideBar";
+import Sidebar from "../layout/sideBar";
 import Pagination from "../Pagination";
 import Loading from "../Loading";
 
