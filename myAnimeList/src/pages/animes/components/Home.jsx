@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import FormSearch from "./searchAnimes/FormSearch";
 import Collection from "./Collection";
-import Sidebar from "../../layout/sideBar";
+import Sidebar from "../../layout/SideBar";
 import "./index.css"
 import Pagination from "./Pagination";
 
