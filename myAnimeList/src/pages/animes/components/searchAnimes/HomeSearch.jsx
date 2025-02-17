@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import Collection from "../Collection";
-import Sidebar from "../layout/sideBar";
+import Sidebar from "../layout/Sidebar.jsx";
 import FormSearch from "./FormSearch";
 import Pagination from "../Pagination";
 import Loading from "../Loading";
