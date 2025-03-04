@@ -2,7 +2,7 @@ import React from "react";
 
 const Pagination = ({amountPags, pags, setPags}) => {
 
-    const maxVisiblePages = 5;
+    const maxVisiblePages = 6;
     const half = Math.floor(maxVisiblePages / 2);
 
     let startPage = Math.max(1, pags - half);
