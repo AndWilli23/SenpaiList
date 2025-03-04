@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Collection from "../Collection";
-import Sidebar from "../layout/Sidebar.jsx";
+import Sidebar from "../../../../layout/Sidebar.jsx";
 import Pagination from "../Pagination";
 import Loading from "../Loading";
 
@@ -12,6 +12,8 @@ const AnimesByGenres = () => {
     const [amountPags, setAmountPags] = useState(1);
     const [loading, setLoading] = useState(false)
     const [nameGenre, setNameGenre] = useState()
+    const [isClose, setIsClose] = useState(false);
+
     const genresOptions = [["Ação", "1"],
         ["Aventura", "2"],
         ["Românce", "22"], 
@@ -24,6 +26,10 @@ const AnimesByGenres = () => {
         ["Esportes", "30"],
         ["Slice of Life", "36"],
         ["Suspense", "41"]]
+
+    const handleSideBar = () => {
+        setIsClose(!isClose)
+    }
 
     useEffect(() => {
         const requestApi = async () => {
@@ -64,19 +70,27 @@ const AnimesByGenres = () => {
     console.log(searchAnimesByGenres);
 
     return (
-        <div className="container">
+        <div className="container " 
+        style={{
+            margin: isClose ? " 0 5.5rem" : " 0 0 0 11.5rem",
+            padding: !isClose && " 0 5rem",  
+        }}>
             <div className="container_sidebar">
-                <Sidebar />
+                <Sidebar isOpen={isClose} handleSideBar={handleSideBar} />
             </div>
-            <div className="container_principal_home">
+            <div className="container_principal_home flex-column" style={{
+                marginTop: "3rem",
+                marginLeft: "7%",
+               
+                }}>
             <h2 className="pb-3" >{nameGenre}: </h2>
                 <div className="content_scroll">
                     {loading && (
                         <p>Carregando</p>
                     )}
                     <Collection animes={searchAnimesByGenres.slice(0, 24)} />
-                </div>
                     <Pagination amountPags={amountPags} setPags={setPag} pags={pag}/>
+                </div>
                
             </div>
         </div>

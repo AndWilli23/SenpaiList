@@ -1,5 +1,5 @@
 import React from "react";
-import Sidebar from "./layout/Sidebar.jsx";
+import Sidebar from "../../../layout/Sidebar.jsx";
 import { Spinner } from "react-bootstrap";
 
 

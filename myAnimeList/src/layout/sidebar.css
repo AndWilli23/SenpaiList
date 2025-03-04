@@ -1,0 +1,39 @@
+button{
+    border: none;
+}
+
+ul{
+    list-style: none;
+}
+
+button{ 
+   all: unset;
+   text-decoration: underline;
+}
+
+
+.link{
+    text-decoration: none;
+    color: #E0E0E0;
+}
+
+.container_sidebar {
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+}
+
+.content_scroll {
+    flex: 1; 
+    overflow-y: auto; 
+    scrollbar-color: #FF007A #1E1E2E;
+}
+
+.open_button {
+    font-size: 30px;
+}
+.close_button {
+    font-size: 30px;
+}
+

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 const Pagination = ({amountPags, pags, setPags}) => {
 
@@ -13,55 +13,71 @@ const Pagination = ({amountPags, pags, setPags}) => {
     }
 
     return(
-     <div className="d-flex justify-content-center text-info pagination" >
-        <button 
-            onClick={() => setPags(1)} 
-            disabled={pags === 1}
-        >
-            Primeira
-        </button>
+     <div className="d-flex justify-content-center text-info mb-5 " >
+        <div className="border rounded px-4 py-2 d-flex gap-3">
+            <button 
+                className="text-center d-flex align-items-center"
+                onClick={() => setPags(1)} 
+                disabled={pags === 1}
+            >
+                <i className="bi bi-chevron-double-left"></i>
+                <span className="pb-1 ps-1 pe-3 border-end ">Primeira</span>
+                
+                
+            </button>
 
-        <button 
-            onClick={() => setPags(pags - 1)} 
-            disabled={pags === 1}
-        >
-            Anterior
-        </button>
+            <button 
+                className="text-center d-flex align-items-center"
+                onClick={() => setPags(pags - 1)} 
+                disabled={pags === 1}
+            >
+                <i className="bi bi-chevron-left"></i>
+                <span className="pb-1 ps-1 pe-3 border-end">Anterior</span>
+            </button>
 
-        {startPage > 1 && <span>...</span>}
+            <div className="px-4">
+                {startPage > 1 && <span className="pb-1">...</span>}
 
-        {[...Array(endPage - startPage + 1)].map((_, i) => {
-            const page = startPage + i;
-            return (
-                <button 
-                    className="rounded mx-1"
-                    key={page} 
-                    onClick={() => setPags(page)} 
-                    style={{ 
-                        
-                        backgroundColor: pags === page ? "#0dcaf0" : "#f8f9fa"   
-                    }}
-                >   
-                    {page}
-                </button>
-            );
-        })}
+                {[...Array(endPage - startPage + 1)].map((_, i) => {
+                    const page = startPage + i;
+                    return (
+                        <button 
+                            className="  pb-1 px-4"
+                            key={page} 
+                            onClick={() => setPags(page)} 
+                            style={{ 
+                                color: page === pags && "#00FF6A",
+                                
+                            }}
+                        >   
+                            {page}
+                        </button>
+                    );
+                })}
 
-        {endPage < amountPags && <span>...</span>}
+                {endPage < amountPags && <span>...</span>}
+            </div>
 
-        <button 
-            onClick={() => setPags(pags + 1)} 
-            disabled={pags === amountPags}
-        >
-            Próxima
-        </button>
+            
 
-        <button 
-            onClick={() => setPags(amountPags)} 
-            disabled={pags === amountPags}
-        >
-            Última
-        </button>
+            <button 
+                className="text-center d-flex align-items-center"
+                onClick={() => setPags(pags + 1)} 
+                disabled={pags === amountPags}
+            >   
+                <span className="pb-1 pe-1 ps-3 border-start">Próxima</span>
+                <i className="bi bi-chevron-right "></i>
+            </button>
+
+            <button 
+                className="text-center d-flex align-items-center"
+                onClick={() => setPags(amountPags)} 
+                disabled={pags === amountPags}
+            >
+                <span className="pb-1 pe-1 ps-3 border-start">Última</span>
+                <i className="bi bi-chevron-double-right"></i>
+            </button>
+        </div>
     </div>
 
 

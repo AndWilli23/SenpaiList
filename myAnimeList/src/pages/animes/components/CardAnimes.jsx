@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Card, Button } from "react-bootstrap";
 
 
-
 const CardAnimes = ({item, index, handleNavigate}) => {
 
 
@@ -16,7 +15,7 @@ const CardAnimes = ({item, index, handleNavigate}) => {
                         <Card.Title style={{color: "#00FFF6",  textAlign: "center", maxWidth:"30ch", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{item.title}</Card.Title>
                     </div>
                     <div className="d-flex justify-content-center">
-                        <Button style={{backgroundColor: "#FF007A", border: "none"}} onClick={handleNavigate}>Ver mais detalhes </Button>   
+                        <Button style={{backgroundColor: "#00FF7F", border: "none"}} onClick={handleNavigate}>Ver mais detalhes </Button>   
                     </div>
                 </Card.Body>
             </Card>
