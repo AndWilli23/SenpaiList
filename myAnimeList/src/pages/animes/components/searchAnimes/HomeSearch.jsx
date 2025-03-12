@@ -53,7 +53,7 @@ const HomeSearch = () => {
         <div className="bg-info ">
           
             <div className="p-5">
-                <h2 className="p-3 px-5 text-center">Faça sua buscas pelos seus animes favoritos ou animes que você deseja saber mais: </h2>
+                <h2 className="p-3 px-5 text-center">Faça sua buscas pelos seus animes favoritos e/ou animes que você deseja saber mais: </h2>
                 <FormSearch animesRef={animesRef} searchApi={searchApi} />
 
                 {loading ? (
