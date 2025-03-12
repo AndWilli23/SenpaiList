@@ -2,6 +2,8 @@ import React from "react"
 import { Link } from "react-router-dom"
 import "./sidebar.css"
 import "../pages/animes/components/index.css"
+import teste from "./teste.png"
+import FormSearch from "../pages/animes/components/searchAnimes/FormSearch"
 
 
 
@@ -10,9 +12,16 @@ const Sidebar = ({isOpen, handleSideBar}) => {
 
  
     return( 
-
-        <>
-            {isOpen ? (
+        
+        <header style={{backgroundColor: "red"}}>
+            <div>
+                <img className="" style={{width: "15%"}} src="" alt="" />
+                <p></p>
+            </div>
+            
+        </header>
+       
+            /* {isOpen ? (
                 <div  >
                     <button  className="open_button p-1"  onClick={handleSideBar}><i class="bi bi-list"></i></button>
                 </div>
@@ -80,8 +89,8 @@ const Sidebar = ({isOpen, handleSideBar}) => {
                     </ul>
                 </div>
             </aside>  
-        )}
-        </>
+        )} */
+       
 
     )
 }

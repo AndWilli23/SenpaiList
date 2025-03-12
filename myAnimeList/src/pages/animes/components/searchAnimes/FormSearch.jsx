@@ -3,15 +3,15 @@ import { Form, Button } from "react-bootstrap";
 
 const FormSearch = ({animesRef, searchApi}) => {
     return(
-        <Form >
-            <Form.Group controlId="formSearch" className="d-flex gap-4 p-4">
-                <Form.Label></Form.Label>
+        <Form className="mx-5 p-3">
+            <Form.Group controlId="formSearch" className="d-flex gap-3">
                 <Form.Control
-                ref={animesRef}
-                type="search"
-                placeholder="Digite um anime: "
+                    className="rounded-start"
+                    ref={animesRef}
+                    type="search"
+                    placeholder="Digite um anime: "
                 ></Form.Control>
-                <Button onClick={searchApi}>Buscar</Button>
+                <Button className="" onClick={searchApi}>Buscar</Button>
             </Form.Group>
         </Form>
     )

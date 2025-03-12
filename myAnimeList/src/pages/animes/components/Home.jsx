@@ -1,9 +1,13 @@
 import React, { useEffect, useRef, useState } from "react";
-import FormSearch from "./searchAnimes/FormSearch";
+import { Link } from "react-router-dom";
 import Collection from "./Collection";
 import Sidebar from "../../../layout/Sidebar";
 import "./index.css"
-import Pagination from "./Pagination";
+
+import TopAnimes from "./TopAnimesSeason/TopAnimes";
+import AnimeNews from "./releases/NewAnimeReleases";
+import Indication from "./animesIndications/Indications";
+import HomeSearch from "./searchAnimes/HomeSearch";
 
 
 const Home =() => {
@@ -15,12 +19,6 @@ const Home =() => {
     const base_url = "https://api.jikan.moe/v4/"
     const animes_populars_url = "top/anime"
 
-    const [isClose, setIsClose] = useState(false);
-
-    const handleSideBar = () => {
-        setIsClose(!isClose)
-    }
- 
     const  requestApiAnimes = async () => {
         try{
             const fetchApi = await fetch(base_url + animes_populars_url);
@@ -33,7 +31,7 @@ const Home =() => {
                 setLoading(true)
             }
     
-            console.log(response)
+            console.log(response.data)
     
             return response;
         } catch(error) {
@@ -48,31 +46,15 @@ const Home =() => {
  
     return(
         <>
-        
-   
-        <div className="container d-flex" 
-            style={{
-                margin: isClose ? " 0 3rem" : " 0 0 0 11.5rem"   
-            }}>
-
-            <div className="container_sidebar">
-                <Sidebar isOpen={isClose} handleSideBar={handleSideBar} />
+            <Sidebar />
+            <HomeSearch/>
+            <div className="d-flex justify-content-end mx-5 mt-5 mb-2">
+                <Link to={"/allAnimes"}  >Ver mais</Link>
             </div>
-            <div className="container_principal_home" style={{
-                marginTop: "3rem",
-                marginLeft: "10%",
-               
-                }}>
-                
-                <div className="content_scroll " >
-                <h2 className="pb-5">Animes Populares:</h2>
-                    <Collection animes={animes.slice(0, 24)}/>
-
-                    <Pagination amountPags={amountPags} setPags={setPag} pags={pag}/>
-
-                </div>
-            </div>
-        </div>
+            <Collection animes={animes}/>
+            <TopAnimes listTopAnimes={animes.slice(0, 10)}/>
+            <AnimeNews/>
+            <Indication animes={animes}/>
         </>
         
     )

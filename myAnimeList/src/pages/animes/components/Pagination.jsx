@@ -11,7 +11,7 @@ const Pagination = ({amountPags, pags, setPags}) => {
     if (endPage - startPage + 1 < maxVisiblePages) {
         startPage = Math.max(1, endPage - maxVisiblePages + 1);
     }
-
+    
     return(
      <div className="d-flex justify-content-center text-info mb-5 " >
         <div className="border rounded px-4 py-2 d-flex gap-3">
@@ -21,9 +21,7 @@ const Pagination = ({amountPags, pags, setPags}) => {
                 disabled={pags === 1}
             >
                 <i className="bi bi-chevron-double-left"></i>
-                <span className="pb-1 ps-1 pe-3 border-end ">Primeira</span>
-                
-                
+                <span className="pb-1 ps-1 pe-3 border-end ">Primeira</span>               
             </button>
 
             <button 
@@ -46,8 +44,7 @@ const Pagination = ({amountPags, pags, setPags}) => {
                             key={page} 
                             onClick={() => setPags(page)} 
                             style={{ 
-                                color: page === pags && "#00FF6A",
-                                
+                                color: page === pags && "#00FF6A",  
                             }}
                         >   
                             {page}
@@ -57,8 +54,6 @@ const Pagination = ({amountPags, pags, setPags}) => {
 
                 {endPage < amountPags && <span>...</span>}
             </div>
-
-            
 
             <button 
                 className="text-center d-flex align-items-center"
@@ -80,11 +75,7 @@ const Pagination = ({amountPags, pags, setPags}) => {
         </div>
     </div>
 
-
     )
-
-    
-
 }
 
 export default Pagination;

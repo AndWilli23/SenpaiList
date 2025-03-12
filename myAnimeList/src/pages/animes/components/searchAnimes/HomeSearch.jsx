@@ -13,7 +13,6 @@ const HomeSearch = () => {
     const [loading, setLoading] = useState(false);
     const [pag, setPag] = useState(1);
     const [amountPags, setAmountPags] = useState(1);
-
     const base_url = "https://api.jikan.moe/v4/";
     const search_url = "anime?q=";
     const [isClose, setIsClose] = useState(false);
@@ -51,22 +50,11 @@ const HomeSearch = () => {
 
    
     return (
-        <div className="container " 
-            style={{
-                margin: isClose ? " 0 5.5rem" : " 0 0 0 11.5rem",
-                padding: !isClose && " 0 5rem",  
-            }}>
-            <div className="container_sidebar">
-                {!loading && (
-                    <Sidebar isOpen={isClose} handleSideBar={handleSideBar} />
-                )}
-            </div>
-            <div className="container_principal_homesSearch flex-column ">
+        <div className="bg-info ">
+          
+            <div className="p-5">
+                <h2 className="p-3 px-5 text-center">Faça sua buscas pelos seus animes favoritos ou animes que você deseja saber mais: </h2>
                 <FormSearch animesRef={animesRef} searchApi={searchApi} />
-
-                {animesSearched.length === 0 && !loading && (
-                    <ListAnimesByGenres/>
-                )}
 
                 {loading ? (
                     <Loading />
@@ -80,9 +68,7 @@ const HomeSearch = () => {
                         )}
                     </div>
                 )}
-            
-               
-              
+
             </div>
         </div>
     );

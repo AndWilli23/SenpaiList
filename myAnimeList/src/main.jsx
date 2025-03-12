@@ -8,6 +8,7 @@ import DetailsAnimes from './pages/animes/components/detailsAnimes/DetailsAnimes
 import HomeSearch from './pages/animes/components/searchAnimes/HomeSearch.jsx';
 import AnimesByGenres from './pages/animes/components/animesByGenres/AnimesByGenres.jsx';
 import DefaultHome from './pages/home/DefaultHome.jsx';
+import AllAnimes from './pages/animes/components/showAllAnimes/AllAnimes.jsx';
 
 
 createRoot(document.getElementById('root')).render(
@@ -15,6 +16,7 @@ createRoot(document.getElementById('root')).render(
     <Routes>
       <Route path={"/"} element={<DefaultHome/>}/>
       <Route path={"/topAnimes"} element={<Home/>}/>
+      <Route path={"/allAnimes"} element={<AllAnimes/>}/>
       <Route path={"/detailsAnimes/:id"} element={<DetailsAnimes/>}/>
       <Route path={"/searchAnimes"} element={<HomeSearch/>}/>
       <Route path={"/animesByGenres/:genre"} element={<AnimesByGenres/>}/>

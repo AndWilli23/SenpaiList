@@ -1,6 +1,7 @@
-body{
+/* body{
     background-color: #181818;
     color: #E0E0E0;
+   
 }
 
 
@@ -16,22 +17,21 @@ h1, h2, h3, h5 {
     height: 88vh;
     display: flex;
 
-}
+} */
 
-.container_principal_homesSearch {
-    height: 95vh;
-    display: flex;
-
-}
 
 .content_scroll {
     flex: 1; 
     overflow-y: auto; 
     scrollbar-color: #00FF7F #1E1E2E;
-}
+} 
 
 img:hover {
     transform: scale(1.05);
     transition: 0.6s;
 }
 
+button{ 
+    all: unset;
+    text-decoration: underline;
+ }

@@ -1,4 +1,4 @@
-button{
+/* button{
     border: none;
 }
 
@@ -6,10 +6,7 @@ ul{
     list-style: none;
 }
 
-button{ 
-   all: unset;
-   text-decoration: underline;
-}
+
 
 
 .link{
@@ -35,5 +32,5 @@ button{
 }
 .close_button {
     font-size: 30px;
-}
+} */
 
