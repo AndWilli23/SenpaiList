@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from "react"
+import React, { useCallback, useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
-import ToolTip from "./ToolTip";
-import { Button } from "react-bootstrap";
+import MemoizedToolTip from "./ToolTip";
 import AnimeScore from "./AnimeScore";
 
 
@@ -23,9 +22,9 @@ const TopAnimes = () => {
     const navigate = useNavigate();
     const [topAnimes, setTopAnimes] = useState([]);
 
-    const handleNavigate = (id) =>{
-        navigate(`/detailsAnimes/${id}`);
-    };
+    const handleNavigate = useCallback((id) =>{
+       return () => navigate(`/detailsAnimes/${id}`);
+    }, [navigate]);
 
     useEffect(() => {
         const requestApi = async () => {
@@ -43,19 +42,19 @@ const TopAnimes = () => {
 
     return(
         <section className="m-5 bg-ligth p-4 rounded ">
-            <h4>Animes relevantes da temporada: </h4>
+            <h4 className="text-warning">Animes relevantes da temporada: </h4>
             <div className="row">
                 <div className="col-6 ">
-                    <ul className="list-unstyled p-2" >
+                    <ul className="list-unstyled p-1" >
                         {topAnimes.slice(0, 5).map((topAnime, index) => (
-                            <li key={index} className=" d-flex gap-3 bg-light shadow-lg flex-wrap m-2 align-items-center p-2 position-relative">
+                            <li key={index} className=" d-flex gap-3 bg-light shadow-lg flex-wrap my-3 align-items-center p-2 position-relative">
                                 <div className="" >
-                                    <ToolTip handleNavigate={handleNavigate} topAnime={topAnime}/>
+                                    <MemoizedToolTip handleNavigate={handleNavigate} topAnime={topAnime}/>
                                 </div>
                                 <div className="d-flex flex-column pt-2">
                                     <div>
                                         <p 
-                                            style={{ maxWidth:"40ch", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }} 
+                                            style={{color: "#38592E", maxWidth:"40ch", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }} 
                                             className="">
                                                 {topAnime.title}
                                             </p>    
@@ -81,16 +80,16 @@ const TopAnimes = () => {
                 </div>
 
                 <div className="col-6">
-                    <ul className="list-unstyled p-2">
+                    <ul className="list-unstyled p-1">
                         {topAnimes.slice(5, 10).map((topAnime, index) => (
-                            <li key={index} className="d-flex gap-3 bg-light shadow-lg flex-wrap m-2 align-items-center p-2 position-relative">
+                            <li key={index} className="d-flex gap-3 bg-light shadow-lg flex-wrap my-3 align-items-center p-2 position-relative">
                                 <div className="" >
-                                    <ToolTip handleNavigate={handleNavigate} topAnime={topAnime}/>
+                                    <MemoizedToolTip handleNavigate={handleNavigate} topAnime={topAnime}/>
                                 </div>
                                 <div className="d-flex flex-column pt-2">
                                     <div>
                                         <p 
-                                            style={{ maxWidth:"40ch", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }} 
+                                            style={{ color: "#38592E", maxWidth:"40ch", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }} 
                                             className="">
                                                 {topAnime.title}
                                         </p>    

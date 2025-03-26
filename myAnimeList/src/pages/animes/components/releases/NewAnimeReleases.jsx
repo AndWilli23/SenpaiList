@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import { useNavigate } from "react-router-dom";
@@ -22,14 +22,14 @@ const NewAnimeReleases = () => {
     requestApi();
   }, []);
 
-    const handleNavigate = (id) =>{
-        navigate(`/detailsAnimes/${id}`)
-    }
+    const handleNavigate = useCallback((id) =>{
+        return () => navigate(`/detailsAnimes/${id}`)
+    }, [navigate]);
 
   return (
     <>
       <div className="m-5">
-        <h4>Animes com episódios lançados recentimente: </h4>
+        <h4  className="text-warning">Animes com episódios lançados recentimente: </h4>
       </div>
     
       <Swiper
@@ -48,13 +48,13 @@ const NewAnimeReleases = () => {
               <SwiperSlide key={index}>
                 <div >
                   <div key={index} className="p-2" >
-                      <button style={{all: "unset", cursor: "pointer"}} onClick={() => handleNavigate(anime.entry.mal_id)}>
+                      <button style={{all: "unset", cursor: "pointer"}} onClick={handleNavigate(anime.entry.mal_id)}>
                           <Card.Img className="p-0" variant='top' src={anime.entry.images.jpg.large_image_url} style={{width: "200px", height:"300px"}}></Card.Img>
                           <div className="py-2 px-0">
                               <Card.Title 
                                   className="p-0" 
                                   style={{
-                                      width: "200px", fontSize: "16px", maxWidth:"30ch", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" 
+                                    color: "#38592E",  width: "200px", fontSize: "16px", maxWidth:"30ch", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" 
                                   }}>
                                       {anime.entry.title}
                               </Card.Title>            

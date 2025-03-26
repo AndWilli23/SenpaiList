@@ -1,5 +1,6 @@
 import React from "react";
 import { Form, Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const FormSearch = ({animesRef, searchApi}) => {
     return(
@@ -11,7 +12,7 @@ const FormSearch = ({animesRef, searchApi}) => {
                     type="search"
                     placeholder="Digite um anime: "
                 ></Form.Control>
-                <Button className="" onClick={searchApi}>Buscar</Button>
+                <Link to={"/allAnimesSearched"}><Button className="" onClick={searchApi}>Buscar</Button></Link>
             </Form.Group>
         </Form>
     )

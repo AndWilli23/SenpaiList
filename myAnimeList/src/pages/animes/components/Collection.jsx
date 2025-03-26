@@ -1,9 +1,8 @@
-import React from "react";
-import CardAnimes from "./CardAnimes";
+import React, { useCallback } from "react";
+import MemoizedCardAnimes from "./CardAnimes";
 import { useNavigate } from "react-router-dom";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
-import "./style.css"
 import 'swiper/css/navigation';
 import { Navigation } from 'swiper/modules';
 
@@ -11,9 +10,9 @@ import { Navigation } from 'swiper/modules';
 const Collection = ({ animes }) => {
     const navigate = useNavigate();
 
-    const handleNavigate = (id) => {
-        navigate(`/detailsAnimes/${id}`);
-    };
+    const handleNavigate = useCallback((id) => {
+        return() => navigate(`/detailsAnimes/${id}`);
+    }, [navigate]);
 
     return (
         <Swiper
@@ -25,11 +24,11 @@ const Collection = ({ animes }) => {
             onSlideChange={() => console.log('slide change')}
             onSwiper={(swiper) => console.log(swiper)}
         >
-            {animes.map((item) => (
+            {animes.map((item, index) => (
                 <SwiperSlide key={item.mal_id}> 
-                    <CardAnimes 
+                    <MemoizedCardAnimes 
                         item={item} 
-                        handleNavigate={() => handleNavigate(item.mal_id)} 
+                        handleNavigate={handleNavigate(item.mal_id)} 
                     />
                 </SwiperSlide>
             ))}
@@ -40,15 +39,4 @@ const Collection = ({ animes }) => {
 export default Collection;
 
 
-        // <div className="m-5">  
-        //     <ul className="d-flex justify-content-center gap-5" style={{margin: "1rem 2rem"}}>
-        //         {animes.map((item, index) => {
-        //             return (
-        //                 <>
-        //                     <CardAnimes key={index} item={item} index={index}  handleNavigate={() => handleNavigate(item.mal_id)}/> 
-        //                 </>
-        //             )
-        //         })}
-        //     </ul>
-        // </div>  
- 
+     

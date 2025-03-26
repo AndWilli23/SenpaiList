@@ -1,13 +1,13 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import Collection from "./Collection";
-import Sidebar from "../../../layout/Sidebar";
 import "./index.css"
-
 import TopAnimes from "./TopAnimesSeason/TopAnimes";
 import AnimeNews from "./releases/NewAnimeReleases";
 import Indication from "./animesIndications/Indications";
 import HomeSearch from "./searchAnimes/HomeSearch";
+import ListAnimesByGenres from "./searchAnimes/ListAnimesByGenres";
+
 
 
 const Home =() => {
@@ -46,15 +46,15 @@ const Home =() => {
  
     return(
         <>
-            <Sidebar />
             <HomeSearch/>
             <div className="d-flex justify-content-end mx-5 mt-5 mb-2">
-                <Link to={"/allAnimes"}  >Ver mais</Link>
+                <Link className="fs-5  p-2" to={"/allAnimes"}  >Ver todos</Link>
             </div>
             <Collection animes={animes}/>
             <TopAnimes listTopAnimes={animes.slice(0, 10)}/>
             <AnimeNews/>
             <Indication animes={animes}/>
+            <ListAnimesByGenres/>
         </>
         
     )

@@ -1,7 +1,7 @@
 import React from "react";
 import { OverlayTrigger, Tooltip } from "react-bootstrap";
 
-const ToolTip = ({handleNavigate, topAnime}) => {
+const MemoizedToolTip = React.memo(function ToolTip({handleNavigate, topAnime}){  
 
     return(
         <div className="m-2" >
@@ -24,7 +24,7 @@ const ToolTip = ({handleNavigate, topAnime}) => {
             }
             >
             
-                <button onClick={() => handleNavigate(topAnime.mal_id)} style={{all: "unset", cursor: "pointer"}}>
+                <button onClick={handleNavigate(topAnime.mal_id)} style={{all: "unset", cursor: "pointer"}}>
                     <img 
                         className="w-100" 
                         src={topAnime.images.jpg.large_image_url} 
@@ -35,6 +35,6 @@ const ToolTip = ({handleNavigate, topAnime}) => {
         </div>
     )
 
-}
+});
 
-export default ToolTip
+export default MemoizedToolTip

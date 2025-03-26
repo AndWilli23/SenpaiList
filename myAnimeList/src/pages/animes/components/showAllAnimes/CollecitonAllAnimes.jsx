@@ -1,14 +1,14 @@
-import React from "react";
-import CardAnimes from "../CardAnimes";
-import {Link, useNavigate} from "react-router-dom"
+import React, { useCallback } from "react";
+import MemoizedCardAnimes from "../CardAnimes";
+import {useNavigate} from "react-router-dom"
 
 const CollectionAllAnimes = ({animes}) =>{
 
     const navigate = useNavigate()
 
-    const handleNavigate = (id) =>{
-        navigate(`/detailsAnimes/${id}`)
-    }
+    const handleNavigate = useCallback((id) =>{
+        return () => navigate(`/detailsAnimes/${id}`)
+    }, [navigate])
 
 
     return(
@@ -17,7 +17,7 @@ const CollectionAllAnimes = ({animes}) =>{
                 {animes.map((item, index) => {
                     return (
                         <>
-                            <CardAnimes key={index} item={item} index={index}  handleNavigate={() => handleNavigate(item.mal_id)}/> 
+                            <MemoizedCardAnimes key={index} item={item} index={index}  handleNavigate={handleNavigate(item.mal_id)}/> 
                         </>
                     )
                 })}

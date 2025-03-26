@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import Sidebar from "../../../../layout/Sidebar";
 import Pagination from "../Pagination";
 import CollectionAllAnimes from "./CollecitonAllAnimes";
 
@@ -37,20 +36,14 @@ const AllAnimes = () => {
     }, [])
 
     return (
-        <>
-            <div className="">
-                <Sidebar />
+
+        <div className="d-flex justify-content-center flex-column">
+            <h4 className="ps-5 py-2 text-warning">Animes Populares: </h4>
+            <div className="p-3">
+                <CollectionAllAnimes animes={animes.slice(0, 24)} />
+                <Pagination amountPags={amountPags} setPags={setPag} pags={pag}/>
             </div>
-            <div className="d-flex justify-content-center flex-column">
-                <h4 className="ps-5">Animes Populares: </h4>
-                <div className="content_scroll p-3">
-                    <CollectionAllAnimes animes={animes.slice(0, 24)} />
-                    <Pagination amountPags={amountPags} setPags={setPag} pags={pag}/>
-                </div>
-            </div>
-        </>
-        
-       
+        </div>
     );
 
 }

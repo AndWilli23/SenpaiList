@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import Collection from "../Collection";
-import Sidebar from "../../../../layout/Sidebar.jsx";
 import Pagination from "../Pagination";
 import Loading from "../Loading";
+import CollectionAllAnimes from "../showAllAnimes/CollecitonAllAnimes.jsx";
 
 const AnimesByGenres = () => {
     const { genre } = useParams();
@@ -12,24 +11,26 @@ const AnimesByGenres = () => {
     const [amountPags, setAmountPags] = useState(1);
     const [loading, setLoading] = useState(false)
     const [nameGenre, setNameGenre] = useState()
-    const [isClose, setIsClose] = useState(false);
 
-    const genresOptions = [["Ação", "1"],
+    const genresOptions = [
+        ["Ação", "1"],
         ["Aventura", "2"],
-        ["Românce", "22"], 
-        ["Comédia", "4"] ,
+        ["Romance", "22"],
+        ["Comédia", "4"],
         ["Drama", "8"],
         ["Fantasia", "10"],
-        ["Sci-Fi", "24"],
+        ["Ficção Científica", "24"],
         ["Horror", "14"],
         ["Mistério", "7"],
         ["Esportes", "30"],
         ["Slice of Life", "36"],
-        ["Suspense", "41"]]
-
-    const handleSideBar = () => {
-        setIsClose(!isClose)
-    }
+        ["Thriller", "41"],
+        ["Sobrenatural", "37"],
+        ["Psicológico", "40"],
+        ["Militar", "38"],
+        ["Histórico", "13"]
+    ];
+   
 
     useEffect(() => {
         const requestApi = async () => {
@@ -70,28 +71,11 @@ const AnimesByGenres = () => {
     console.log(searchAnimesByGenres);
 
     return (
-        <div className="container " 
-        style={{
-            margin: isClose ? " 0 5.5rem" : " 0 0 0 11.5rem",
-            padding: !isClose && " 0 5rem",  
-        }}>
-            <div className="container_sidebar">
-                <Sidebar isOpen={isClose} handleSideBar={handleSideBar} />
-            </div>
-            <div className="container_principal_home flex-column" style={{
-                marginTop: "3rem",
-                marginLeft: "7%",
-               
-                }}>
-            <h2 className="pb-3" >{nameGenre}: </h2>
-                <div className="content_scroll">
-                    {loading && (
-                        <p>Carregando</p>
-                    )}
-                    <Collection animes={searchAnimesByGenres.slice(0, 24)} />
-                    <Pagination amountPags={amountPags} setPags={setPag} pags={pag}/>
-                </div>
-               
+        <div className=" d-flex justify-content-center flex-column">
+            <h4 className="ps-5 py-2 text-warning">{nameGenre} </h4>
+            <div className="p-3">
+                <CollectionAllAnimes animes={searchAnimesByGenres.slice(0, 24)} />
+                <Pagination amountPags={amountPags} setPags={setPag} pags={pag}/>
             </div>
         </div>
     );
