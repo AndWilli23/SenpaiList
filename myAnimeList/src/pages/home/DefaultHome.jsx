@@ -143,7 +143,7 @@ const DefaultHome = () => {
                                 </div>
                             ) : (
                                 <div className="d-flex justify-content-center mb-5 mt-3">
-                                    <Button type="submit" variant="outline-primary" style={{paddingLeft: "8rem", paddingRight: "8rem"}}><Link style={{textDecoration: "none"}} to={"/topAnimes"}>log-in</Link></Button>
+                                    <Button type="submit" variant="outline-primary" style={{paddingLeft: "8rem", paddingRight: "8rem"}}><Link style={{textDecoration: "none"}} to={"/Home"}>log-in</Link></Button>
                                 </div>
                             )}
                         </Form>   
