@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from "react";
 import Pagination from "../Pagination";
 import CollectionAllAnimes from "./CollecitonAllAnimes";
+import { Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
+import Loading from "../Loading";
+
 
 const AllAnimes = () => {
 
@@ -12,8 +16,9 @@ const AllAnimes = () => {
     const animes_populars_url = "top/anime"
 
     const  requestApiAnimes = async () => {
+        setLoading(true); 
         try{
-            const fetchApi = await fetch(base_url + animes_populars_url);
+            const fetchApi = await fetch(base_url + animes_populars_url + `?page=${pag}`);
             
             const response = await fetchApi.json();
 
@@ -28,12 +33,18 @@ const AllAnimes = () => {
             return response;
         } catch(error) {
             console.log("Não foi possível fazer a requisição a Api", error);
+        } finally {
+            setLoading(false); 
         }
     }
 
     useEffect(()=>{
         requestApiAnimes()
-    }, [])
+    }, [pag])
+
+    if (loading) {
+        return <Loading />;
+    }
 
     return (
 
@@ -42,6 +53,13 @@ const AllAnimes = () => {
             <div className="p-3">
                 <CollectionAllAnimes animes={animes.slice(0, 24)} />
                 <Pagination amountPags={amountPags} setPags={setPag} pags={pag}/>
+                <div className="d-flex justify-content-center p-5 ">
+                    <Link to={"/Home"}>
+                        <Button className="px-5"  variant="outline-info">
+                                Voltar para a Home
+                        </Button>
+                    </Link>
+                </div>
             </div>
         </div>
     );

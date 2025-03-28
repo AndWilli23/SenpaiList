@@ -19,7 +19,7 @@ const Indication = ({ animes }) => {
       return () => navigate(`/detailsAnimes/${id}`);
   }, [navigate]);
 
-  if (!firstIndication || !segundIndication) return <p>Carregando recomendações...</p>;
+  if (!firstIndication || !segundIndication) return <p className="text-center fs-2 p-5 text-warning">Carregando recomendações...</p>;
 
   return (
     <div className="p-4" style={{backgroundColor: "#013A40"}}>

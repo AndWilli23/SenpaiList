@@ -39,7 +39,7 @@ const ListAnimesByGenres = () => {
 
                 <div className="d-flex flex-column flex-md-row align-items-center justify-content-center gap-5">
            
-                    <ul className="d-flex flex-wrap list-unstyled w-20" style={{width: "20%"}}>
+                    <ul className="d-flex flex-wrap list-unstyled mb-5" style={{width: "20%"}}>
                         {genresOptions.slice(0, 4).map((genre, index) => (
                             <li key={index} className="p-2 w-100">
                                 <Button
@@ -54,7 +54,7 @@ const ListAnimesByGenres = () => {
                         ))}
                     </ul>
 
-                    <ul className="d-flex flex-wrap list-unstyled w-20" style={{width: "20%"}}>
+                    <ul className="d-flex flex-wrap list-unstyled  mb-5" style={{width: "20%"}}>
                         {genresOptions.slice(4, 8).map((genre, index) => (
                             <li key={index} className="p-2 w-100">
                                 <Button
@@ -69,7 +69,7 @@ const ListAnimesByGenres = () => {
                         ))}
                     </ul>
 
-                    <ul className="d-flex flex-wrap list-unstyled w-20" style={{width: "20%"}}>
+                    <ul className="d-flex flex-wrap list-unstyled  mb-5" style={{width: "20%"}}>
                         {genresOptions.slice(8, 12).map((genre, index) => (
                             <li key={index} className="p-2 w-100">
                                 <Button
@@ -84,7 +84,7 @@ const ListAnimesByGenres = () => {
                         ))}
                     </ul>
 
-                        <ul className="d-flex flex-wrap list-unstyled" style={{width: "20%"}}>
+                        <ul className="d-flex flex-wrap list-unstyled mb-5" style={{width: "20%"}}>
                         {genresOptions.slice(12, 16).map((genre, index) => (
                             <li key={index} className="p-2 w-100">
                                 <Button

@@ -72,7 +72,7 @@ const AnimesByGenres = () => {
 
     return (
         <div className=" d-flex justify-content-center flex-column">
-            <h4 className="ps-5 py-2 text-warning">{nameGenre} </h4>
+            <h3 className="ps-5 pt-5 pb-3 text-warning" style={{paddingTop: "4rem"}}>{nameGenre}: </h3>
             <div className="p-3">
                 <CollectionAllAnimes animes={searchAnimesByGenres.slice(0, 24)} />
                 <Pagination amountPags={amountPags} setPags={setPag} pags={pag}/>

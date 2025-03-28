@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Button, OverlayTrigger, Tooltip } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import {useParams} from "react-router-dom"
 import ReactPlayer from "react-player";
 import ReviewsCards from "./ReviewsCards";
@@ -85,6 +86,7 @@ const DetailsAnimes = () => {
         return <Loading loaded={animeSelect}></Loading>
     }
 
+    console.log(animeSelect.episodes)
     
 
     return(
@@ -109,7 +111,6 @@ const DetailsAnimes = () => {
                                             <p className="m-0 text-center text-success">{item.name}</p>
                                         </div>
                                     ))}
-                                
                             </div>
                         </div>
 
@@ -119,68 +120,77 @@ const DetailsAnimes = () => {
                         <p className="text-center" style={{color: "#38592E"}}>{animeSelect.synopsis}</p>
                     </section>
 
-                    <section>
-                        <h3 className="text-warning text-center py-4">Duração: </h3>
+                    {animeSelect.episodes!== null && ( 
+                        <section>
+                            <h3 className="text-warning text-center py-4">Duração: </h3>
 
-                        <div className="d-flex gap-5 justify-content-center">
-                            <p className="bg-success p-2 rounded">Episódios: {animeSelect.episodes}</p>
-                            <p className="bg-info p-2 rounded">Temporada: {animeSelect.season}</p>
-                        </div>
-                    </section>
+                            <div className="d-flex gap-5 justify-content-center">
+                                <p className="bg-success px-5 p-2 rounded">Episódios: {animeSelect.episodes}</p>
+                            </div>
+                        </section>
+                    )}
+
+                    {characters.length !== 0 && (
+                        <section>
+                            <div className="d-flex flex-column align-items-center gap-3 m-5">
+                                <div className="d-flex pb-4 flex-column">
+                                    <h3 className=" text-warning pb-3">Personagens: </h3>
+                                    <OverlayTrigger
+                                        placement="right"
+                                        overlay={
+                                            <Tooltip id="tooltip-top">
+                                                Clique nos personagens para mais informações
+                                            </Tooltip>
+                                        }
+                                        >
+                                        <Button style={{background: "none", border: "none"}}><span className="bg-secondary rounded px-3 py-2">?</span></Button>
+                                    </OverlayTrigger>
+                                </div>
+
+
+                                <div className="d-flex align-items-center gap-3 flex-wrap justify-content-center ">
+                                    {characters.slice(0, amountCharacters).map((item, index) => (
+                                        <div key={index} style={{width: "5%"}}>
+
+                                            
+                                            <button style={{border: "none", background: "none", outline: "none", padding: "0"}} onClick={() => handleCharacterSelected(item.character.mal_id)}>
+                                                <OffCanvas characterAbout={characterSelect} name={item.character.name} character={item.character}/>
+                                            </button>
+                                        </div>            
+                                    ))}
+                                </div>
+                                <div className="d-flex g-3">
+                                    {amountCharacters > 25 ? (
+                                        <Button style={{margin: "0 1rem"}} variant="outline-warning" onClick={loadLessCharacters }>ver menos...</Button>
+                                    ) : (<Button style={{margin: "0 1rem"}} variant="outline-warning" disabled onClick={loadLessCharacters }>ver menos...</Button>)}
+
+                                    {amountCharacters < characters.length ? (
+                                        <Button style={{margin: "0 1rem"}} variant="outline-warning" onClick={loadMoreCharacters }>ver mais...</Button>
+                                    ) : (<Button style={{margin: "0 1rem"}} variant="outline-warning" disabled onClick={loadMoreCharacters }>ver mais...</Button>)}
+                                </div>
+                            </div>
+                        </section>
+                    )}
                 
-                
-                
-                    <section>
-                        <div className="d-flex flex-column align-items-center gap-3 m-5">
-                            <div className="d-flex pb-4 flex-column">
-                                <h3 className=" text-warning pb-3">Personagens: </h3>
-                                <OverlayTrigger
-                                    placement="right"
-                                    overlay={
-                                        <Tooltip id="tooltip-top">
-                                            Clique nos personagens para mais informações
-                                        </Tooltip>
-                                    }
-                                    >
-                                    <Button style={{background: "none", border: "none"}}><span className="bg-secondary rounded px-3 py-2">?</span></Button>
-                                </OverlayTrigger>
+
+                    {reviews.length !== 0 && (
+                        <section>
+                            <div>
+                                <h3 className=" text-warning text-center" >Reviews: </h3>
+                                <div className="d-flex flex-column">         
+                                    <ReviewsCards reviews={reviews}/>
+                                </div>
                             </div>
+                        </section>
+                    )}
 
-
-                            <div className="d-flex align-items-center flex-wrap gap-3  justify-content-center ">
-                                {characters.slice(0, amountCharacters).map((item, index) => (
-                                    <div key={index} style={{width: "5%"}}>
-
-                                        
-                                        <button style={{border: "none", background: "none", outline: "none", padding: "0"}} onClick={() => handleCharacterSelected(item.character.mal_id)}>
-                                            <OffCanvas characterAbout={characterSelect} name={item.character.name} character={item.character}/>
-                                        </button>
-                                    </div>            
-                                ))}
-                            </div>
-                            <div className="d-flex g-3">
-                                {amountCharacters > 25 ? (
-                                    <Button style={{margin: "0 1rem"}} variant="outline-warning" onClick={loadLessCharacters }>ver menos...</Button>
-                                ) : (<Button style={{margin: "0 1rem"}} variant="outline-warning" disabled onClick={loadLessCharacters }>ver menos...</Button>)}
-
-                                {amountCharacters < characters.length ? (
-                                    <Button style={{margin: "0 1rem"}} variant="outline-warning" onClick={loadMoreCharacters }>ver mais...</Button>
-                                ) : (<Button style={{margin: "0 1rem"}} variant="outline-warning" disabled onClick={loadMoreCharacters }>ver mais...</Button>)}
-                            </div>
-                        </div>
-                    </section>
-
-                    <section>
-                    <div>
-                    <h3 className=" text-warning text-center" >Reviews: </h3>
-                        <div className="d-flex flex-column">
-                                                
-                                <ReviewsCards reviews={reviews}/>
-                            </div>
-                        </div>
-
-                    </section>
-
+                    <div className="d-flex justify-content-center p-5" >
+                        <Link to={"/Home"}>
+                            <Button className="px-5" variant="outline-info">
+                                    Voltar para a Home
+                            </Button>
+                        </Link>
+                    </div>
                 
             </main>
     )

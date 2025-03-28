@@ -28,16 +28,16 @@ const NewAnimeReleases = () => {
 
   return (
     <>
-      <div className="m-5">
+      <div className="m-5" style={{paddingTop: "4rem"}}>
         <h4  className="text-warning">Animes com episódios lançados recentimente: </h4>
       </div>
     
       <Swiper
         navigation={true} 
         modules={[Navigation]}
-        style={{ margin: "2rem 4rem" }}
+        style={{margin: "0rem 4rem 10rem 4rem"}}
         spaceBetween={5}
-        slidesPerView={5}
+        slidesPerView={6}
         onSlideChange={() => console.log('slide change')}
         onSwiper={(swiper) => console.log(swiper)}
       >

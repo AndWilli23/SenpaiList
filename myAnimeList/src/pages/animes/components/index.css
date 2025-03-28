@@ -1,6 +1,10 @@
  body{
     background-color: #F2EDD0;
     color: #E0E0E0;  
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
 }
 
 

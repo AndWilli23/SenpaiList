@@ -8,7 +8,7 @@ const Header = () => {
 
     return( 
         
-        <header className="p-2 " style={{backgroundColor: "#2A95BF"}}>
+        <header className="p-2 sticky-top " style={{backgroundColor: "#2A95BF"}}>
             <div className="">
                 <Link className="navbar-brand d-flex align-items-center justify-content-center" to={"/home"}>
                     <i className="bi bi-stars fs-2 me-2" style={{ color: "#04BF8A" }}></i>

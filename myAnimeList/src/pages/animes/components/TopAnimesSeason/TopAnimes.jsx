@@ -41,78 +41,84 @@ const TopAnimes = () => {
 
 
     return(
-        <section className="m-5 bg-ligth p-4 rounded ">
-            <h4 className="text-warning">Animes relevantes da temporada: </h4>
-            <div className="row">
-                <div className="col-6 ">
-                    <ul className="list-unstyled p-1" >
-                        {topAnimes.slice(0, 5).map((topAnime, index) => (
-                            <li key={index} className=" d-flex gap-3 bg-light shadow-lg flex-wrap my-3 align-items-center p-2 position-relative">
-                                <div className="" >
-                                    <MemoizedToolTip handleNavigate={handleNavigate} topAnime={topAnime}/>
-                                </div>
-                                <div className="d-flex flex-column pt-2">
-                                    <div>
-                                        <p 
-                                            style={{color: "#38592E", maxWidth:"40ch", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }} 
-                                            className="">
-                                                {topAnime.title}
-                                            </p>    
-                                    </div>
-                                    <div className="d-flex gap-3">
-                                        {topAnime.genres.map((genre, n) => (
-                                            
-                                            <p 
-                                                key={n} 
-                                                className={`text-light p-1 px-3 rounded`} 
-                                                style={{backgroundColor: `${color[index ]}`}}
-                                                index={index}>{genre.name}</p>
-                                        ))}
-                                    </div>  
-                                </div>
-                                <div>
-                                    <AnimeScore topAnime={topAnime}/>
-                                </div>
-                                
-                            </li>
-                        ))}
-                    </ul>
-                </div>
-
-                <div className="col-6">
-                    <ul className="list-unstyled p-1">
-                        {topAnimes.slice(5, 10).map((topAnime, index) => (
-                            <li key={index} className="d-flex gap-3 bg-light shadow-lg flex-wrap my-3 align-items-center p-2 position-relative">
-                                <div className="" >
-                                    <MemoizedToolTip handleNavigate={handleNavigate} topAnime={topAnime}/>
-                                </div>
-                                <div className="d-flex flex-column pt-2">
-                                    <div>
-                                        <p 
-                                            style={{ color: "#38592E", maxWidth:"40ch", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }} 
-                                            className="">
-                                                {topAnime.title}
-                                        </p>    
-                                    </div>
-                                    <div className="d-flex gap-3">
-                                        {topAnime.genres.map((genre, n) => ( 
-                                            <p 
-                                                key={n} 
-                                                className={`text-light p-1 px-3 rounded`} 
-                                                style={{backgroundColor: `${color.slice(5, 10)[index]}`}}
-                                                index={index}>{genre.name}</p>
-                                        ))}
-                                    </div>  
-                                </div>
-                                <div>
-                                    <AnimeScore topAnime={topAnime}/>
-                                </div>
-                            </li>
-                        ))}
-                    </ul>
-                </div>
+        <>
+        
+            <div className="me-5 mt-5 ms-5" style={{paddingTop: "4rem"}}>
+                <h4 className="text-warning pe-5">Animes relevantes da temporada: </h4>
             </div>
-        </section>
+            
+            <section className="mb-5 me-5 ms-5 bg-ligth p-4 rounded ">
+                <div className="row">
+                    <div className="col-6 ">
+                        <ul className="list-unstyled p-1" >
+                            {topAnimes.slice(0, 5).map((topAnime, index) => (
+                                <li key={index} className=" d-flex gap-3 bg-light shadow-lg flex-wrap my-3 align-items-center p-2 position-relative">
+                                    <div className="" >
+                                        <MemoizedToolTip handleNavigate={handleNavigate} topAnime={topAnime}/>
+                                    </div>
+                                    <div className="d-flex flex-column pt-2">
+                                        <div>
+                                            <p 
+                                                style={{color: "#38592E", maxWidth:"40ch", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }} 
+                                                className="">
+                                                    {topAnime.title}
+                                                </p>    
+                                        </div>
+                                        <div className="d-flex gap-3">
+                                            {topAnime.genres.map((genre, n) => (
+                                                
+                                                <p 
+                                                    key={n} 
+                                                    className={`text-light p-1 px-3 rounded`} 
+                                                    style={{backgroundColor: `${color[index ]}`}}
+                                                    index={index}>{genre.name}</p>
+                                            ))}
+                                        </div>  
+                                    </div>
+                                    <div>
+                                        <AnimeScore topAnime={topAnime}/>
+                                    </div>
+                                    
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+
+                    <div className="col-6">
+                        <ul className="list-unstyled p-1">
+                            {topAnimes.slice(5, 10).map((topAnime, index) => (
+                                <li key={index} className="d-flex gap-3 bg-light shadow-lg flex-wrap my-3 align-items-center p-2 position-relative">
+                                    <div className="" >
+                                        <MemoizedToolTip handleNavigate={handleNavigate} topAnime={topAnime}/>
+                                    </div>
+                                    <div className="d-flex flex-column pt-2">
+                                        <div>
+                                            <p 
+                                                style={{ color: "#38592E", maxWidth:"40ch", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }} 
+                                                className="">
+                                                    {topAnime.title}
+                                            </p>    
+                                        </div>
+                                        <div className="d-flex gap-3">
+                                            {topAnime.genres.map((genre, n) => ( 
+                                                <p 
+                                                    key={n} 
+                                                    className={`text-light p-1 px-3 rounded`} 
+                                                    style={{backgroundColor: `${color.slice(5, 10)[index]}`}}
+                                                    index={index}>{genre.name}</p>
+                                            ))}
+                                        </div>  
+                                    </div>
+                                    <div>
+                                        <AnimeScore topAnime={topAnime}/>
+                                    </div>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </>
     )
 }
 

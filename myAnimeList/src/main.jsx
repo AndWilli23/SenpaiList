@@ -12,6 +12,7 @@ import AllAnimes from './pages/animes/components/showAllAnimes/AllAnimes.jsx';
 import AllAnimeSearched from './pages/animes/components/searchAnimes/AllAnimeSearched.jsx';
 import Header from './layout/Header.jsx';
 import Footer from './layout/Footer.jsx'
+import NotFound from './layout/NotFound.jsx';
 
 
 createRoot(document.getElementById('root')).render(
@@ -19,6 +20,7 @@ createRoot(document.getElementById('root')).render(
     <Header/>
     <Routes>
       <Route path={"/"} element={<DefaultHome/>}/>
+      <Route path={"*"} element={<NotFound/>}/>
       <Route path={"/home"} element={<Home/>}/>
       <Route path={"/allAnimes"} element={<AllAnimes/>}/>
       <Route path={"/allAnimesSearched"} element={<AllAnimeSearched/>}/>

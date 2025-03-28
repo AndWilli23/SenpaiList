@@ -2,6 +2,8 @@ import React, { useState, useEffect, useRef } from "react";
 import Pagination from "../Pagination";
 import CollectionAllAnimes from "../showAllAnimes/CollecitonAllAnimes";
 import FormSearch from "./FormSearch";
+import { Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const AllAnimeSearched = () => {
 
@@ -52,6 +54,13 @@ const AllAnimeSearched = () => {
                 {animesSearched.length !== 0  && (
                     <Pagination amountPags={amountPags} setPags={setPag} pags={pag}/>
                 )}
+                <div className="d-flex justify-content-center p-5 ">
+                    <Link to={"/Home"}>
+                        <Button className="px-5" variant="outline-info">
+                                Voltar para a Home
+                        </Button>
+                    </Link>
+                </div>
             </div>
         </div>
       
