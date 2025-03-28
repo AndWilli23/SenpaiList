@@ -7,7 +7,6 @@ import Home from './pages/animes/components/Home.jsx'
 import DetailsAnimes from './pages/animes/components/detailsAnimes/DetailsAnimes.jsx';
 import HomeSearch from './pages/animes/components/searchAnimes/HomeSearch.jsx';
 import AnimesByGenres from './pages/animes/components/animesByGenres/AnimesByGenres.jsx';
-import DefaultHome from './pages/home/DefaultHome.jsx';
 import AllAnimes from './pages/animes/components/showAllAnimes/AllAnimes.jsx';
 import AllAnimeSearched from './pages/animes/components/searchAnimes/AllAnimeSearched.jsx';
 import Header from './layout/Header.jsx';
@@ -19,9 +18,8 @@ createRoot(document.getElementById('root')).render(
   <BrowserRouter>
     <Header/>
     <Routes>
-      <Route path={"/"} element={<DefaultHome/>}/>
+      <Route path={"/Home"} element={<Home/>}/>
       <Route path={"*"} element={<NotFound/>}/>
-      <Route path={"/home"} element={<Home/>}/>
       <Route path={"/allAnimes"} element={<AllAnimes/>}/>
       <Route path={"/allAnimesSearched"} element={<AllAnimeSearched/>}/>
       <Route path={"/detailsAnimes/:id"} element={<DetailsAnimes/>}/>
