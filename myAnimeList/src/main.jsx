@@ -18,7 +18,7 @@ createRoot(document.getElementById('root')).render(
   <BrowserRouter>
     <Header/>
     <Routes>
-      <Route path={"/Home"} element={<Home/>}/>
+      <Route path={"/"} element={<Home/>}/>
       <Route path={"*"} element={<NotFound/>}/>
       <Route path={"/allAnimes"} element={<AllAnimes/>}/>
       <Route path={"/allAnimesSearched"} element={<AllAnimeSearched/>}/>
