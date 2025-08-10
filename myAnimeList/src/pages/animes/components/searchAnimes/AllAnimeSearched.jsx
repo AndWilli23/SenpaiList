@@ -57,7 +57,7 @@ const AllAnimeSearched = () => {
                 <div className="d-flex justify-content-center p-5 ">
                     <Link to={"/Home"}>
                         <Button className="px-5" variant="outline-info">
-                                Voltar para a Home
+                            Back to main screen
                         </Button>
                     </Link>
                 </div>

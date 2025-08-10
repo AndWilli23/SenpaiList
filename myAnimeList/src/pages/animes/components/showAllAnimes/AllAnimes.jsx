@@ -49,14 +49,14 @@ const AllAnimes = () => {
     return (
 
         <div className="d-flex justify-content-center flex-column">
-            <h4 className="ps-5 py-2 text-warning">Animes Populares: </h4>
+            <h2 className=" py-5 text-center fw-bold fs-2 text-dark">All top Animes: </h2>
             <div className="p-3">
                 <CollectionAllAnimes animes={animes.slice(0, 24)} />
                 <Pagination amountPags={amountPags} setPags={setPag} pags={pag}/>
                 <div className="d-flex justify-content-center p-5 ">
-                    <Link to={"/Home"}>
+                    <Link to={"/"}>
                         <Button className="px-5"  variant="outline-info">
-                                Voltar para a Home
+                            Back to main screen
                         </Button>
                     </Link>
                 </div>

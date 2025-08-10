@@ -42,24 +42,24 @@ const TopAnimes = () => {
 
     return(
         <>
-        
-            <div className="me-5 mt-5 ms-5" style={{paddingTop: "4rem"}}>
-                <h4 className="text-warning pe-5">Animes relevantes da temporada: </h4>
-            </div>
             
-            <section className="mb-5 me-5 ms-5 bg-ligth p-4 rounded ">
-                <div className="row">
-                    <div className="col-6 ">
-                        <ul className="list-unstyled p-1" >
+            <section className="rounded ">
+
+                <div >
+                    <h2 className="text-center fw-bold fs-2 text-warning">Season highlights: </h2>
+                </div>
+                <div className="row p-5 rounded  "  style={{color: "#555555"}}>
+                    <div className="col-6 " >
+                        <ul className="list-unstyled p-1 " >
                             {topAnimes.slice(0, 5).map((topAnime, index) => (
-                                <li key={index} className=" d-flex gap-3 bg-light shadow-lg flex-wrap my-3 align-items-center p-2 position-relative">
+                                <li key={index} className="shadow d-flex gap-3 rounded flex-wrap my-3 align-items-center p-2 position-relative"  style={{backgroundColor: '#F7F7F7'}}>
                                     <div className="" >
                                         <MemoizedToolTip handleNavigate={handleNavigate} topAnime={topAnime}/>
                                     </div>
                                     <div className="d-flex flex-column pt-2">
                                         <div>
                                             <p 
-                                                style={{color: "#38592E", maxWidth:"40ch", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }} 
+                                                style={{maxWidth:"40ch", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }} 
                                                 className="">
                                                     {topAnime.title}
                                                 </p>    
@@ -87,14 +87,14 @@ const TopAnimes = () => {
                     <div className="col-6">
                         <ul className="list-unstyled p-1">
                             {topAnimes.slice(5, 10).map((topAnime, index) => (
-                                <li key={index} className="d-flex gap-3 bg-light shadow-lg flex-wrap my-3 align-items-center p-2 position-relative">
+                                <li key={index} className="d-flex gap-3 rounded shadow flex-wrap my-3 align-items-center p-2 position-relative "  style={{backgroundColor: '#F7F7F7'}} >
                                     <div className="" >
                                         <MemoizedToolTip handleNavigate={handleNavigate} topAnime={topAnime}/>
                                     </div>
                                     <div className="d-flex flex-column pt-2">
                                         <div>
                                             <p 
-                                                style={{ color: "#38592E", maxWidth:"40ch", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }} 
+                                                style={{maxWidth:"40ch", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }} 
                                                 className="">
                                                     {topAnime.title}
                                             </p>    

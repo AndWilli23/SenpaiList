@@ -6,22 +6,22 @@ import { Button } from "react-bootstrap";
 const ListAnimesByGenres = () => {
     const navigate = useNavigate();
     const genresOptions = [
-        ["Ação", "1"],
-        ["Aventura", "2"],
+        ["Action", "1"],
+        ["Adventure", "2"],
         ["Romance", "22"],
-        ["Comédia", "4"],
+        ["Comedy", "4"],
         ["Drama", "8"],
-        ["Fantasia", "10"],
-        ["Ficção Científica", "24"],
+        ["Fantasy", "10"],
+        ["Science Fiction", "24"],
         ["Horror", "14"],
-        ["Mistério", "7"],
-        ["Esportes", "30"],
+        ["Mystery", "7"],
+        ["Sports", "30"],
         ["Slice of Life", "36"],
-        ["Suspense", "41"],
-        ["Sobrenatural", "37"],
-        ["Psicológico", "40"],
-        ["Militar", "38"],
-        ["Histórico", "13"]
+        ["Thriller", "41"],
+        ["Supernatural", "37"],
+        ["Psychological", "40"],
+        ["Military", "38"],
+        ["Historical", "13"]
     ];
 
     const handleNavigate = useCallback((genre) =>{
@@ -31,13 +31,10 @@ const ListAnimesByGenres = () => {
 
     return (
         
-        <section className="d-flex justify-content-center align-items-center">
+        <section className="d-flex justify-content-center align-items-center mt-5">
             <div>
-            <div className="m-5">
-                <h4  className="text-warning">Pesquisa por Gêneros: </h4>
-            </div>
-
-                <div className="d-flex flex-column flex-md-row align-items-center justify-content-center gap-5">
+    
+                <div className=" mt-5 d-flex flex-column flex-md-row align-items-center justify-content-center gap-5">
            
                     <ul className="d-flex flex-wrap list-unstyled mb-5" style={{width: "20%"}}>
                         {genresOptions.slice(0, 4).map((genre, index) => (

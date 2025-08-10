@@ -1,12 +1,10 @@
-import React, { useEffect, useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
 import Collection from "./Collection";
 import "./index.css"
 import TopAnimes from "./TopAnimesSeason/TopAnimes";
-import AnimeNews from "./releases/NewAnimeReleases";
 import Indication from "./animesIndications/Indications";
-import HomeSearch from "./searchAnimes/HomeSearch";
 import ListAnimesByGenres from "./searchAnimes/ListAnimesByGenres";
+import HeroSection from "../../../layout/HeroSection";
 
 
 
@@ -14,8 +12,6 @@ const Home =() => {
 
     const [animes, setAnimes] = useState([]);
     const [loading, setLoading] = useState(false)
-    const [pag, setPag] = useState(1);
-    const [amountPags, setAmountPags] = useState(1);
     const base_url = "https://api.jikan.moe/v4/"
     const animes_populars_url = "top/anime"
 
@@ -46,13 +42,9 @@ const Home =() => {
  
     return(
         <>
-           
-                
-            
+            <HeroSection/>
             <Collection animes={animes}/>
-            <HomeSearch/>
             <TopAnimes listTopAnimes={animes.slice(0, 10)}/>
-            <AnimeNews/>
             <Indication animes={animes}/>
             <ListAnimesByGenres/>
         </>

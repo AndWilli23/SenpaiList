@@ -4,10 +4,12 @@ function ReviewsCards({ reviews }) {
   return (
     <Carousel data-bs-theme="dark" style={{ backgroundColor: 'transparent' }} className='m-5'>
       {reviews.slice(0, 3).map((item, index) => ( 
-        <Carousel.Item key={index} className="rounded p-5" style={{backgroundColor: "#8FBF60"}}> 
-          <h5 className='text-center'>{item.user.username}: </h5>
+        <Carousel.Item key={index} className="rounded p-5 shadow-sm" style={{backgroundColor: "#FAFAFA"}}> 
+          <h5 className='text-center text-black'>{item.user.username}: </h5>
             <p style={{
-                color: "#38592E",
+                padding: "0 7rem",
+                textAlign: "center",
+                color: "#1E1E1E",
                 paddingTop: "1rem",
                 maxWidth: "300ch", 
                 overflow: "hidden", 
@@ -15,7 +17,7 @@ function ReviewsCards({ reviews }) {
                 display: "-webkit-box", 
                 WebkitBoxOrient: "vertical",
                 WebkitLineClamp: 3}}>{item.review}</p>
-            <a className='d-flex justify-content-center' href={item.url}>Ver review completa aqui: </a>
+            <a className='d-flex justify-content-center' href={item.url}>Click hero to see the review: </a>
         
         </Carousel.Item>
       ))}

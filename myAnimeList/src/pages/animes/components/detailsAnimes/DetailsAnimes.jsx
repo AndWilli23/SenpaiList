@@ -103,7 +103,7 @@ const DetailsAnimes = () => {
                         </div>
 
                         <div className="m-5">
-                            <h3 className=" text-warning text-center mb-5">Gênero: </h3>
+                            <h3 className=" text-warning text-center mb-5">Genre: </h3>
                             
                                 <div className="d-flex gap-4 flex-wrap justify-content-center" >
                                     {animeSelect.genres.map((item, index) => (
@@ -122,10 +122,10 @@ const DetailsAnimes = () => {
 
                     {animeSelect.episodes!== null && ( 
                         <section>
-                            <h3 className="text-warning text-center py-4">Duração: </h3>
+                            <h3 className="text-warning text-center py-4">Duration: </h3>
 
-                            <div className="d-flex gap-5 justify-content-center">
-                                <p className="bg-success px-5 p-2 rounded">Episódios: {animeSelect.episodes}</p>
+                            <div className="d-flex gap-5 justify-content-center w-100">
+                                <p className="bg-success px-5 p-2 rounded">Eps: {animeSelect.episodes}</p>
                             </div>
                         </section>
                     )}
@@ -134,12 +134,12 @@ const DetailsAnimes = () => {
                         <section>
                             <div className="d-flex flex-column align-items-center gap-3 m-5">
                                 <div className="d-flex pb-4 flex-column">
-                                    <h3 className=" text-warning pb-3">Personagens: </h3>
+                                    <h3 className=" text-warning pb-3">Characters: </h3>
                                     <OverlayTrigger
                                         placement="right"
                                         overlay={
                                             <Tooltip id="tooltip-top">
-                                                Clique nos personagens para mais informações
+                                                Click on characters to more informations 
                                             </Tooltip>
                                         }
                                         >
@@ -148,9 +148,9 @@ const DetailsAnimes = () => {
                                 </div>
 
 
-                                <div className="d-flex align-items-center gap-3 flex-wrap justify-content-center ">
+                                <div className="d-flex gap-4 flex-wrap justify-content-center">
                                     {characters.slice(0, amountCharacters).map((item, index) => (
-                                        <div key={index} style={{width: "5%"}}>
+                                        <div key={index} style={{}}>
 
                                             
                                             <button style={{border: "none", background: "none", outline: "none", padding: "0"}} onClick={() => handleCharacterSelected(item.character.mal_id)}>
@@ -159,14 +159,14 @@ const DetailsAnimes = () => {
                                         </div>            
                                     ))}
                                 </div>
-                                <div className="d-flex g-3">
+                                <div className="">
                                     {amountCharacters > 25 ? (
-                                        <Button style={{margin: "0 1rem"}} variant="outline-warning" onClick={loadLessCharacters }>ver menos...</Button>
-                                    ) : (<Button style={{margin: "0 1rem"}} variant="outline-warning" disabled onClick={loadLessCharacters }>ver menos...</Button>)}
+                                        <Button style={{margin: "0 1rem"}} variant="outline-warning" onClick={loadLessCharacters }>see less...</Button>
+                                    ) : (<Button style={{margin: "0 1rem"}} variant="outline-warning" disabled onClick={loadLessCharacters }>see more...</Button>)}
 
                                     {amountCharacters < characters.length ? (
-                                        <Button style={{margin: "0 1rem"}} variant="outline-warning" onClick={loadMoreCharacters }>ver mais...</Button>
-                                    ) : (<Button style={{margin: "0 1rem"}} variant="outline-warning" disabled onClick={loadMoreCharacters }>ver mais...</Button>)}
+                                        <Button style={{margin: "0 1rem"}} variant="outline-warning" onClick={loadMoreCharacters }>see more...</Button>
+                                    ) : (<Button style={{margin: "0 1rem"}} variant="outline-warning" disabled onClick={loadMoreCharacters }>see less...</Button>)}
                                 </div>
                             </div>
                         </section>
@@ -185,9 +185,9 @@ const DetailsAnimes = () => {
                     )}
 
                     <div className="d-flex justify-content-center p-5" >
-                        <Link to={"/Home"}>
+                        <Link to={"/"}>
                             <Button className="px-5" variant="outline-info">
-                                    Voltar para a Home
+                                    Back to main screen
                             </Button>
                         </Link>
                     </div>

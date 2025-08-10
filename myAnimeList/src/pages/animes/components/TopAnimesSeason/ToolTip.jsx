@@ -12,7 +12,7 @@ const MemoizedToolTip = React.memo(function ToolTip({handleNavigate, topAnime}){
                     <div>
                         {topAnime.type === "TV" ? (
                             <div>
-                                <p className="p-3">Temporada: {topAnime.season}</p>
+                                <p className="p-3">Season: {topAnime.season}</p>
                                 <p>{`${topAnime.type} - ${topAnime.episodes} episódios`}</p>
                             </div>
                         ) : (

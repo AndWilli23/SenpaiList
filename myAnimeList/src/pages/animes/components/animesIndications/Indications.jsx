@@ -19,10 +19,10 @@ const Indication = ({ animes }) => {
       return () => navigate(`/detailsAnimes/${id}`);
   }, [navigate]);
 
-  if (!firstIndication || !segundIndication) return <p className="text-center fs-2 p-5 text-warning">Carregando recomendações...</p>;
+  if (!firstIndication || !segundIndication) return <p className="text-center fs-2 p-5 text-warning">Loading...</p>;
 
   return (
-    <div className="p-4" style={{backgroundColor: "#013A40"}}>
+    <div className="p-4 mt-5 shadow-sm" style={{backgroundColor: "#FAFAFA", color: "#555555"}}>
       <div className="d-flex  align-items-center pb-4 m-5">
         <button aria-label={`Ver detalhes de ${firstIndication.title}`} style={{all: "unset", cursor: "pointer"}} onClick={handleNavigate(firstIndication.mal_id)}>
           <img
@@ -32,14 +32,14 @@ const Indication = ({ animes }) => {
           />
         </button>
         <div>
-          <p className="fs-2 text-center text-light">{firstIndication.title}</p>
-          <p className="my-4 mx-5 text-center text-light">{firstIndication.synopsis}</p>
+          <p className="fs-2 text-center text-warning" >{firstIndication.title}</p>
+          <p className="my-4 mx-5 text-center">{firstIndication.synopsis}</p>
           <div className="d-flex justify-content-center">
             <Button
-              style={{ padding: "5px 9rem" }}
+              style={{ padding: "5px 9rem", backgroundColor: "#6C63FF", border: "none" }}
               onClick={handleNavigate(firstIndication.mal_id)}
             >
-              Ver mais detalhes
+              More details
             </Button>
           </div>
         </div>
@@ -54,14 +54,14 @@ const Indication = ({ animes }) => {
           />
         </button>
         <div>
-          <p className="fs-2 text-center text-light">{segundIndication.title}</p>
-          <p className="my-4 mx-5 text-center text-light">{segundIndication.synopsis}</p>
+          <p className="fs-2 text-center text-warning" >{segundIndication.title}</p>
+          <p className="my-4 mx-5 text-center ">{segundIndication.synopsis}</p>
           <div className="d-flex justify-content-center">
             <Button
-              style={{ padding: "5px 9rem" }}
+              style={{ padding: "5px 9rem",  backgroundColor: "#6C63FF", border: "none"  }}
               onClick={handleNavigate(segundIndication.mal_id)}
             >
-              Ver mais detalhes
+              More details
             </Button>
           </div>
         </div>

@@ -13,7 +13,7 @@ const CollectionAllAnimes = ({animes}) =>{
 
     return(
         <div className="">  
-            <ul className="d-flex justify-content-center flex-wrap" style={{margin: "1rem 3rem"}}>
+            <ul className="d-flex justify-content-center flex-wrap p-0" >
                 {animes.map((item, index) => {
                     return (
                         <>

@@ -21,7 +21,7 @@ const Pagination = ({amountPags, pags, setPags}) => {
                 disabled={pags === 1}
             >
                 <i className="bi bi-chevron-double-left"></i>
-                <span className="pb-1 ps-1 pe-3 border-end ">Primeira</span>               
+                <span className="pb-1 ps-1 pe-3 border-end ">First</span>               
             </button>
 
             <button 
@@ -30,7 +30,7 @@ const Pagination = ({amountPags, pags, setPags}) => {
                 disabled={pags === 1}
             >
                 <i className="bi bi-chevron-left"></i>
-                <span className="pb-1 ps-1 pe-3 border-end">Anterior</span>
+                <span className="pb-1 ps-1 pe-3 border-end">Previous</span>
             </button>
 
             <div className="px-4">
@@ -60,7 +60,7 @@ const Pagination = ({amountPags, pags, setPags}) => {
                 onClick={() => setPags(pags + 1)} 
                 disabled={pags === amountPags}
             >   
-                <span className="pb-1 pe-1 ps-3 border-start">Próxima</span>
+                <span className="pb-1 pe-1 ps-3 border-start">Next</span>
                 <i className="bi bi-chevron-right "></i>
             </button>
 
@@ -69,7 +69,7 @@ const Pagination = ({amountPags, pags, setPags}) => {
                 onClick={() => setPags(amountPags)} 
                 disabled={pags === amountPags}
             >
-                <span className="pb-1 pe-1 ps-3 border-start">Última</span>
+                <span className="pb-1 pe-1 ps-3 border-start">Last</span>
                 <i className="bi bi-chevron-double-right"></i>
             </button>
         </div>

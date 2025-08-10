@@ -1,5 +1,5 @@
  body{
-    background-color: #F2EDD0;
+    background-color: #F7F7F7;
     color: #E0E0E0;  
     font-family: "Montserrat", sans-serif;
     font-optical-sizing: auto;
@@ -22,4 +22,5 @@ img:hover {
 button{ 
     all: unset;
     text-decoration: underline;
- }
+}
+

@@ -13,22 +13,22 @@ const AnimesByGenres = () => {
     const [nameGenre, setNameGenre] = useState()
 
     const genresOptions = [
-        ["Ação", "1"],
-        ["Aventura", "2"],
+        ["Action", "1"],
+        ["Adventure", "2"],
         ["Romance", "22"],
-        ["Comédia", "4"],
+        ["Comedy", "4"],
         ["Drama", "8"],
-        ["Fantasia", "10"],
-        ["Ficção Científica", "24"],
+        ["Fantasy", "10"],
+        ["Science Fiction", "24"],
         ["Horror", "14"],
-        ["Mistério", "7"],
-        ["Esportes", "30"],
+        ["Mystery", "7"],
+        ["Sports", "30"],
         ["Slice of Life", "36"],
         ["Thriller", "41"],
-        ["Sobrenatural", "37"],
-        ["Psicológico", "40"],
-        ["Militar", "38"],
-        ["Histórico", "13"]
+        ["Supernatural", "37"],
+        ["Psychological", "40"],
+        ["Military", "38"],
+        ["Historical", "13"]
     ];
    
 
@@ -74,7 +74,7 @@ const AnimesByGenres = () => {
         <div className=" d-flex justify-content-center flex-column">
             <h3 className="ps-5 pt-5 pb-3 text-warning" style={{paddingTop: "4rem"}}>{nameGenre}: </h3>
             <div className="p-3">
-                <CollectionAllAnimes animes={searchAnimesByGenres.slice(0, 24)} />
+                <CollectionAllAnimes animes={searchAnimesByGenres} />
                 <Pagination amountPags={amountPags} setPags={setPag} pags={pag}/>
             </div>
         </div>
